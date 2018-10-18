@@ -16,10 +16,16 @@ console.log(JSON.stringify(docs, undefined, 2))
 })
  */
 
-db.collection('Users').find({
-    Name: 'Shasheel'
-}).count().then((count) => {
-console.log(count)
+ /* db.collection('Todos').findOneAndDelete({
+     completed: false
+ }).then((result) => {
+     console.log(result)
+ }) */
+
+db.collection('Users').findOneAndDelete({
+    _id: new ObjectID('5bc858517bfcc45b60dfb70a')
+}).then((result) => {
+console.log(result)
 })
 
 client.close()
