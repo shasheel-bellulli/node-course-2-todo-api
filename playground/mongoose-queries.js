@@ -19,9 +19,7 @@ User.findById(id).then((user) => {
 
 /* var id = '5bcf08eab3fb966ccceb510977'
 
-if(!ObjectId.isValid(id)){
-    console.log('ID not valid')
-} */
+*/
 /* 
 Todo.find({
     _id: id
@@ -35,11 +33,16 @@ Todo.findOne({
     console.log('Todos', todo)
 })
  */
-/* Todo.findById(id).then((todo) => {
+
+if(!ObjectId.isValid(id)){
+    console.log('ID not valid')
+} 
+
+Todo.findById(id).then((todo) => {
     if(!todo){
         console.log('No todo found')
     }
     console.log('TodosById', todo)
 }).catch((e) => {
     console.log(e)
-}) */
+})
