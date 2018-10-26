@@ -6,6 +6,7 @@ const bodyParser = require('body-parser')
 var {mongoose} = require('./db/mongoose.js')
 var {Todo} = require('./models/Todo')
 var {User} = require('./models/User')
+var {authenticate} = require('./middleware/authenticate')
 
 const {ObjectId} = require('mongodb')
 const port = process.env.PORT
@@ -103,6 +104,11 @@ app.post('/users', (req, res) => {
     }).catch((e) => {
         res.status(400).send(e)
     })
+})
+
+
+app.get('/users/me', authenticate, (req, res) => {
+   res.send(req.user)
 })
 
 app.listen(port,() => {
