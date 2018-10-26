@@ -1,5 +1,20 @@
 const {SHA256} = require('crypto-js')
 const jwt = require('jsonwebtoken')
+const bcrypt = require('bcryptjs')
+
+/*
+bcrypt.genSalt(10, (err, salt) => {
+    bcrypt.hash(password, salt, (err, hash) => {
+        console.log('Hash :',hash)
+    })
+})
+ */
+var password = '123abc'
+var hashedPassword = '$2a$10$op.uwTdGkSPylEUQJ58jk.cWszsHybZdj3/0zM2BQThtcJLXl.7PS'
+
+bcrypt.compare(password, hashedPassword, (err, res) => {
+    console.log(res)
+})
 var data = {
     id: 10
 }
